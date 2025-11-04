@@ -121,7 +121,7 @@ export default function TaskList() {
       }
       if (!res.ok) {
         console.error('DELETE /api/tasks/' + id + ' failed', res.status, json);
-        // prefer server-provided error, then raw text, then generic
+      
         throw new Error(json.error || text || `Delete failed (${res.status})`);
       }
       setTasks((prev) => prev.filter((t) => t.id !== id));
